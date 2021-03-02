@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css"/>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 350px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+
+<body BGCOLOR="96CDCD" TEXT="4c3639">
+
+    <h1 style = font-size:60px> <center> WELCOME TO IBAADA'S BOOKSTORE </center> </h1>
+    <h1 style = font-size:40px> <center> THE ONLINE BOOKSTORE TO DONATE USED BOOKS </center> </h1>
+    <h1 style = font-size:25px> <center> Since this website is for DONATIONS ONLY, please refer to the map below to find locations of the book store "Indigo," where you may purchase books! You will find Indigo locations in Toronto, Oshawa and Mississauaga Malls!</center> </h1>
+
+
+
+<div id="map"></div>
+
+<script>
+
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 4,
+            center: {lat: 43.653225, lng: -79.383186}
+        });
+
+        addMarker({lat: 43.656682, lng: -79.381069});
+        addMarker({lat: 43.893332, lng: -78.882395});
+        addMarker({lat: 43.594851, lng: -79.640106});
+
+
+        function addMarker(coords){
+            var marker = new google.maps.Marker({
+                position: coords,
+                map:map,
+            });
+        }
+    }
+
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/
+js?key=AIzaSyCEkM_cFkEiMnHntEMfl7s_ipXEmi0NIVw&callback=initMap">
+</script>
+
+<div class = "books">
+<form id="books">
+    <p>
+        <label style="font-size: 20px;"> Please Enter the Name of the Book You Would like to Donate: </label>
+        <input type="text" name="book" id="book">
+    </p>
+
+    <p>
+        <label style="font-size: 20px;"> Author Name: </label>
+        <input type="text" name="author" id="author">
+    </p>
+
+<button type = "submit"> <h2 style = font-size:15px> Donate! </button>
+</form>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<script src="bookstore.js"></script>
+
+</body>
+</html>
